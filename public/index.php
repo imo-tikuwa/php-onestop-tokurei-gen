@@ -111,3 +111,38 @@ Route\post('/', function () {
         var_dump($e->getMessage());
     }
 });
+
+// public以下のリソースを返すルーティング
+// これ必要？？（無いと全部text/htmlで読み込まれてしまうので定義してみる）
+Route\get('/(.+)', function ($route_param) {
+    $filepath = dirname(__FILE__) . '/' . $route_param[1];
+    $fileext = pathinfo($filepath, PATHINFO_EXTENSION);
+    if (file_exists($filepath)) {
+        $content_type = 'text/html';
+        switch ($fileext) {
+            case 'css':
+                $content_type = 'text/css; charset=UTF-8';
+                break;
+            case 'js':
+                $content_type = 'application/javascript';
+                break;
+            case 'jpg':
+            case 'jpeg':
+                $content_type = 'image/jpeg';
+                break;
+            case 'ico':
+                $content_type = 'image/x-icon';
+                break;
+            case 'woff2':
+                $content_type = 'font/woff2';
+                break;
+        }
+        Response\header('Content-Type', $content_type);
+        Response\header('Content-Length', filesize($filepath));
+        readfile($filepath);
+    }
+});
+
+if (!Route\did_match()) {
+    Response\html('Not found', 404);
+}
