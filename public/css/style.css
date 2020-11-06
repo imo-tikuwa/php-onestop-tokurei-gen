@@ -1,0 +1,52 @@
+@CHARSET "UTF-8";
+
+#check_one_0,
+#check_two_0 {
+    margin-left: 20px;
+}
+h1 {
+    text-align: center;
+    font-size: 1.5rem;
+}
+ul.head-text {
+  padding-left: 20px;
+}
+ul.head-text li {
+    font-size: 80%;
+}
+label {
+    font-size: 90%;
+}
+
+@media (max-width: 768px) {
+  h1 {
+    font-size: 1.2rem;
+  }
+}
+
+.datepicker-days th.dow:first-child,
+.datepicker-days td:first-child {
+  color: #f00;
+}
+.datepicker-days th.dow:last-child,
+.datepicker-days td:last-child {
+  color: #00f;
+}
+
+body {
+	background-image: url("../img/p_da0740_m_da07404.jpg");
+}
+.container {
+	background-color: rgba(255,255,255,0.9);
+	border: 1px solid #eee;
+}
+
+::-webkit-input-placeholder {
+	color: #cdcddd !important;
+}
+::-moz-placeholder {
+	color: #cdcddd !important;
+}
+:-ms-input-placeholder {
+	color: #cdcddd !important;
+}

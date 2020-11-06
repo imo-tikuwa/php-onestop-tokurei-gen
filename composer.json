@@ -1,0 +1,19 @@
+{
+    "name": "imo-tikuwa/php-onestop-tokurei-gen",
+    "require": {
+        "leocavalcante/siler": "^1.7",
+        "twig/twig": "^3.1",
+        "thinreports-php/thinreports-php": "dev-support-new-schema"
+    },
+    "repositories": {
+        "imo-tikuwa/thinreports-php": {
+            "type": "vcs",
+            "url": "https://github.com/imo-tikuwa/thinreports-php"
+        }
+    },
+    "scripts": {
+        "start": [
+            "php -S localhost:8080 srv/sapi.php"
+        ]
+    }
+}
