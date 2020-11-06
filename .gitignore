@@ -1,1 +1,4 @@
 /vendor/
+/output/*
+!.gitkeep
+/public/node_modules/

@@ -1,8 +1,191 @@
+<!DOCTYPE html>
 <html>
 <head>
-<title>test title</title>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ワンストップ特例申請書ジェネレータ</title>
+<link rel="shortcut icon" href="/favicon.ico">
+<link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap.min.css" />
+<link rel="stylesheet" href="/node_modules/@fortawesome/fontawesome-free/css/all.min.css" />
+<link rel="stylesheet" href="/node_modules/tempusdominus-bootstrap-4/build/css/tempusdominus-bootstrap-4.min.css" />
+<link rel="stylesheet" href="/css/style.css" />
+<script defer type="text/javascript" src="/node_modules/jquery/dist/jquery.min.js"></script>
+<script defer type="text/javascript" src="/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+<script defer type="text/javascript" src="/node_modules/moment/moment.js"></script>
+<script defer type="text/javascript" src="/node_modules/moment/locale/ja.js"></script>
+<script defer type="text/javascript" src="/node_modules/tempusdominus-bootstrap-4/build/js/tempusdominus-bootstrap-4.min.js"></script>
+<script defer type="text/javascript" src="/js/script.js"></script>
 </head>
 <body>
-{{ your_name }}
+  <div class="container mt-3 mb-3 pt-3 pb-2">
+    <h1>ワンストップ特例申請書ジェネレータ</h1>
+    <hr />
+    <ul class="head-text">
+      <li>ふるさと納税で寄付先に送付するワンストップ特例申請書について入力した内容を元にPDF出力を行うツールです。</li>
+      <li>フォームに入力された情報の保存などは一切行っておりません。ソースは<a href="https://github.com/imo-tikuwa/ruby-onestop-tokurei-gen" target="_blank">GitHub</a>に公開しています。</li>
+      <li>当ツールを使用しての申請書提出の実績はないので心配な方は使用しないようお願いします。また、当サイトに掲載された内容によって生じた損害等の一切の責任を負いかねます。</li>
+    </ul>
+    <!-- created by https://bootstrapformbuilder.com/ -->
+    <form action="./" method="POST">
+      <div class="row">
+        <div class="col-lg-8 col-sm-12">
+          <div class="form-group">
+            <button name="submit" type="submit" class="btn btn-sm btn-secondary rounded-0" style="width:100%">PDF作成</button>
+          </div>
+        </div>
+        <div class="col-lg-4 col-sm-12">
+          <div class="form-group">
+            <button id="test" type="button" class="btn btn-sm btn-secondary rounded-0" style="width:100%">テストデータで埋める</button>
+          </div>
+        </div>
+        <div class="col-lg-4 col-sm-12">
+          <div class="form-group">
+            <label for="mayor">送付先</label>
+            <input id="mayor" name="mayor" placeholder="てすと市長" type="text" class="form-control form-control-sm rounded-0">
+            <span id="mayorHelpBlock" class="form-text text-muted"><small>寄附した自治体の宛名を入力してください</small></span>
+          </div>
+        </div>
+        <div class="col-lg-4 col-sm-12">
+          <div class="form-group">
+            <label for="zip">郵便番号</label>
+            <div class="input-group input-group-sm">
+              <div class="input-group-prepend">
+                <div class="input-group-text rounded-0">〒</div>
+              </div>
+              <input id="zip" name="zip" placeholder="101-0032" type="text" class="form-control form-control-sm rounded-0">
+            </div>
+            <span id="zipHelpBlock" class="form-text text-muted"><small>ハイフンを含めて半角数字で入力してください</small></span>
+          </div>
+        </div>
+        <div class="col-lg-4 col-sm-12">
+          <div class="form-group">
+            <label for="address">住所</label>
+            <textarea id="address" name="address" placeholder="東京都　千代田区&#13;&#10;ほげほげ１－２－３&#13;&#10;ふがふがマンション２０３号室" cols="40" rows="3" class="form-control form-control-sm rounded-0" aria-describedby="addressHelpBlock"></textarea>
+            <span id="addressHelpBlock" class="form-text text-muted"><small>都道府県～部屋番号までを複数行で入力してください</small></span>
+          </div>
+        </div>
+        <div class="col-lg-4 col-sm-12">
+          <div class="form-group">
+            <label for="name">氏名</label>
+            <input id="name" name="name" placeholder="てすと　氏名" type="text" class="form-control form-control-sm rounded-0">
+            <span id="nameHelpBlock" class="form-text text-muted"><small>姓名の間に全角スペースを入れてください</small></span>
+          </div>
+        </div>
+        <div class="col-lg-4 col-sm-12">
+          <div class="form-group">
+            <label for="name_kana">フリガナ</label>
+            <input id="name_kana" name="name_kana" placeholder="テスト　シメイ" type="text" class="form-control form-control-sm rounded-0">
+            <span id="name_kanaHelpBlock" class="form-text text-muted"><small>姓名の間に全角スペースを入れてください</small></span>
+          </div>
+        </div>
+        <div class="col-lg-4 col-sm-12">
+          <div class="form-group">
+            <label for="my_number">個人番号</label>
+            <input id="my_number" name="my_number" placeholder="111122223333" type="text" class="form-control form-control-sm rounded-0">
+            <span id="my_numberHelpBlock" class="form-text text-muted"><small>12桁の半角数字で入力してください</small></span>
+          </div>
+        </div>
+        <div class="col-lg-4 col-sm-12">
+          <div class="form-group">
+            <label for="phone_number">電話番号</label>
+            <input id="phone_number" name="phone_number" placeholder="000-1111-2222" type="text" class="form-control form-control-sm rounded-0">
+            <span id="phone_numberHelpBlock" class="form-text text-muted"><small>ハイフン繋ぎの半角数字で入力してください</small></span>
+          </div>
+        </div>
+        <div class="col-lg-4 col-sm-12">
+          <div class="form-group">
+            <label>性別</label>
+            <div>
+              <div class="form-check form-check-inline">
+                <input name="sex" id="radio_0" type="radio" class="form-check-input" value="man" checked>
+                <label for="radio_0" class="form-check-label">男</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input name="sex" id="radio_1" type="radio" class="form-check-input" value="woman">
+                <label for="radio_1" class="form-check-label">女</label>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 col-sm-12">
+          <div class="form-group">
+            <label for="donation_amount">寄附金額</label>
+            <div class="input-group input-group-sm">
+              <div class="input-group-prepend">
+                <div class="input-group-text rounded-0">￥</div>
+              </div>
+              <input id="donation_amount" name="donation_amount" placeholder="10000" type="text" class="form-control form-control-sm rounded-0">
+            </div>
+            <span id="donation_amountHelpBlock" class="form-text text-muted"><small>半角数字で入力してください</small></span>
+          </div>
+        </div>
+        <!-- PCのときの日付項目 -->
+        <div class="col-lg-4 d-none d-lg-block">
+          <div class="form-group">
+            <label for="birth_date">生年月日</label>
+            <input id="birth_date" name="birth_date" placeholder="1989/01/02" type="text" class="form-control form-control-sm datetimepicker-input rounded-0" data-toggle="datetimepicker" data-target="#birth_date">
+          </div>
+        </div>
+        <div class="col-lg-4 d-none d-lg-block">
+          <div class="form-group">
+            <label for="output_date">出力年月日</label>
+            <input id="output_date" name="output_date" placeholder="2020/01/07" type="text" class="form-control form-control-sm datetimepicker-input rounded-0" data-toggle="datetimepicker" data-target="#output_date">
+          </div>
+        </div>
+        <div class="col-lg-4 d-none d-lg-block">
+          <div class="form-group">
+            <label for="donation_date">寄附年月日</label>
+            <input id="donation_date" name="donation_date" placeholder="2019/11/22" type="text" class="form-control form-control-sm datetimepicker-input rounded-0" data-toggle="datetimepicker" data-target="#donation_date">
+          </div>
+        </div>
+        <!-- SPのときの日付項目 -->
+        <div class="col-sm-12 d-block d-lg-none">
+          <div class="form-group">
+            <label for="birth_date_sp">生年月日</label>
+            <input id="birth_date_sp" name="birth_date" placeholder="1989-01-02" type="date" class="form-control form-control-sm rounded-0">
+          </div>
+        </div>
+        <div class="col-lg-4 col-sm-12 d-block d-lg-none">
+          <div class="form-group">
+            <label for="output_date_sp">出力年月日</label>
+            <input id="output_date_sp" name="output_date" placeholder="2020-01-07" type="date" class="form-control form-control-sm rounded-0">
+          </div>
+        </div>
+        <div class="col-lg-4 col-sm-12 d-block d-lg-none">
+          <div class="form-group">
+            <label for="donation_date_sp">寄附年月日</label>
+            <input id="donation_date_sp" name="donation_date" placeholder="2019-11-22" type="date" class="form-control form-control-sm rounded-0">
+          </div>
+        </div>
+        <div class="col-lg-12 col-sm-12">
+          <label>チェック事項</label>
+          <div class="form-group mb-1">
+            <div>
+              <div class="form-check form-check-inline">
+                <label for="check_one_0" class="form-check-label">①　地方税法附則第７条第１項（第８項）に規定する申告特例対象寄附者である</label>
+                <input name="check_one" id="check_one_0" type="checkbox" class="form-check-input" value="yes">
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-12 col-sm-12">
+          <div class="form-group">
+            <div>
+              <div class="form-check form-check-inline">
+                <label for="check_two_0" class="form-check-label">②　地方税法附則第７条第２項（第９項）に規定する要件に該当する者である</label>
+                <input name="check_two" id="check_two_0" type="checkbox" class="form-check-input" value="yes">
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- SPのとき画面下部にもPDF作成ボタンを表示 -->
+        <div class="col-sm-12 d-block d-lg-none">
+          <div class="form-group">
+            <button name="submit" type="submit" class="btn btn-sm btn-secondary rounded-0" style="width:100%">PDF作成</button>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
 </body>
 </html>

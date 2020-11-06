@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "ff5b8ad2258a3fcc0e48009bc46b0fa2",
+    "content-hash": "313d82ec6137c1b34f351faae0cb1bc4",
     "packages": [
         {
             "name": "leocavalcante/siler",
@@ -464,6 +464,42 @@
                 }
             ],
             "time": "2020-10-27T19:28:23+00:00"
+        },
+        {
+            "name": "yutaki323/wareki",
+            "version": "1.0.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/yutaki323/wareki.git",
+                "reference": "f5902d30d1176ba795147548e8c12f41b89484b2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/yutaki323/wareki/zipball/f5902d30d1176ba795147548e8c12f41b89484b2",
+                "reference": "f5902d30d1176ba795147548e8c12f41b89484b2",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.2"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Wareki\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "yutaki",
+                    "homepage": "https://github.com/yutaki323"
+                }
+            ],
+            "description": "日付文字列を元号＋和暦数字の表記に変換するPHPのクラスです。",
+            "time": "2019-04-23T15:25:36+00:00"
         }
     ],
     "packages-dev": [],

@@ -34,11 +34,12 @@ label {
 }
 
 body {
-	background-image: url("../img/p_da0740_m_da07404.jpg");
+	background-image: url("../img/p_da0740_m_da07400.jpg");
 }
 .container {
-	background-color: rgba(255,255,255,0.9);
-	border: 1px solid #eee;
+	background-color: rgba(40,40,50,0.98);
+  border: 1px solid #eee;
+  color: #eee;
 }
 
 ::-webkit-input-placeholder {
