@@ -9,6 +9,7 @@ require dirname(__DIR__) . '/vendor/autoload.php';
 
 Response\header('Access-Control-Allow-Methods', 'GET, POST');
 Twig\init(dirname(__DIR__) . '/templates');
+ini_set('display_errors', 'on');
 
 Route\get('/', function () {
     $params = Request\get();
