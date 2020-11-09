@@ -1,0 +1,36 @@
+{
+  "name": "webroot",
+  "version": "1.0.0",
+  "description": "install jquery libs etc.",
+  "main": "index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "watch": "npm i && cross-env NODE_ENV=development webpack --watch",
+    "build": "npm i && cross-env NODE_ENV=production webpack --progress"
+  },
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "@fortawesome/fontawesome-free": "^5.12.0",
+    "bootstrap": "^4.4.1",
+    "jquery": "^3.4.1",
+    "moment": "^2.24.0",
+    "tempusdominus-bootstrap-4": "^5.1.2"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.12.3",
+    "@babel/preset-env": "^7.12.1",
+    "babel-loader": "^8.1.0",
+    "cross-env": "^7.0.2",
+    "css-loader": "^5.0.1",
+    "file-loader": "^6.2.0",
+    "sass": "^1.29.0",
+    "sass-loader": "^10.0.5",
+    "style-loader": "^2.0.0",
+    "webpack": "^5.4.0",
+    "webpack-cli": "^4.2.0"
+  }
+}

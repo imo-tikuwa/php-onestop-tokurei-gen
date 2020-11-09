@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "313d82ec6137c1b34f351faae0cb1bc4",
+    "content-hash": "0fabd104ad1fce418611c4de3663d1b9",
     "packages": [
         {
             "name": "leocavalcante/siler",
@@ -335,12 +335,12 @@
             "version": "dev-support-new-schema",
             "source": {
                 "type": "git",
-                "url": "https://github.com/imo-tikuwa/thinreports-php.git",
+                "url": "https://github.com/thinreports-php/thinreports-php.git",
                 "reference": "3342306d1e80acdf2bd4492555e06ccda2745138"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/imo-tikuwa/thinreports-php/zipball/3342306d1e80acdf2bd4492555e06ccda2745138",
+                "url": "https://api.github.com/repos/thinreports-php/thinreports-php/zipball/3342306d1e80acdf2bd4492555e06ccda2745138",
                 "reference": "3342306d1e80acdf2bd4492555e06ccda2745138",
                 "shasum": ""
             },
@@ -389,7 +389,8 @@
                 "Reporting"
             ],
             "support": {
-                "source": "https://github.com/imo-tikuwa/thinreports-php/tree/support-new-schema"
+                "source": "https://github.com/thinreports-php/thinreports-php/tree/support-new-schema",
+                "issues": "https://github.com/thinreports-php/thinreports-php/issues"
             },
             "time": "2018-02-24T19:00:46+00:00"
         },

@@ -1,3 +1,15 @@
+import '@fortawesome/fontawesome-free/js/all';
+
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/js/bootstrap.bundle.min.js';
+
+window.moment = require('moment');
+window.moment.locale('ja');
+import "tempusdominus-bootstrap-4/build/css/tempusdominus-bootstrap-4.min.css";
+import 'tempusdominus-bootstrap-4/build/js/tempusdominus-bootstrap-4.js';
+
+import "../css/style.css";
+
 $(function () {
   $('#birth_date, #output_date, #donation_date').datetimepicker({
     format: 'YYYY/MM/DD',

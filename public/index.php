@@ -133,9 +133,6 @@ Route\get('/(.+)', function ($route_param) {
             case 'ico':
                 $content_type = 'image/x-icon';
                 break;
-            case 'woff2':
-                $content_type = 'font/woff2';
-                break;
         }
         Response\header('Content-Type', $content_type);
         Response\header('Content-Length', filesize($filepath));

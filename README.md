@@ -5,13 +5,11 @@
 git clone https://github.com/imo-tikuwa/php-onestop-tokurei-gen.git
 cd php-onestop-tokurei-gen
 composer install
-cd public
-npm ci
+npm run build
 ```
 
 ## start
 ```
-cd php-onestop-tokurei-gen
 composer start
 ```
 

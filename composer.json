@@ -7,9 +7,9 @@
         "yutaki323/wareki": "^1.0"
     },
     "repositories": {
-        "imo-tikuwa/thinreports-php": {
+        "thinreports-php/thinreports-php": {
             "type": "vcs",
-            "url": "https://github.com/imo-tikuwa/thinreports-php"
+            "url": "https://github.com/thinreports-php/thinreports-php"
         }
     },
     "scripts": {
